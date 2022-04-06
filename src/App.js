@@ -3,7 +3,7 @@ import Home from './route/Home/Home';
 import {Route,Routes} from 'react-router-dom';
 import Navbar from './route/Navbar/Navbar';
 import Shop from './route/Shop/Shop';
-import SignInUp from './route/SignInUp/SignInUp';
+import AuthenticationPage from './route/AuthenticationPage/AuthenticationPage';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         <Route path='/' element={<Navbar/>}>
           <Route index element={<Home/>}/>
           <Route path='shop' element={<Shop/>}/>
-          <Route path='sign' element={<SignInUp/>}/>
+          <Route path='auth' element={<AuthenticationPage/>}/>
         </Route>
       </Routes>
     </React.Fragment>

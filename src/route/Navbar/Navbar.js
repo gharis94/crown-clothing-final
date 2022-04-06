@@ -11,7 +11,7 @@ const Navbar = () => {
                 <Crwlogo className='logo-container'/>
             </Link>
             <div className='nav-links-container'>
-                <Link to='sign'>Sing Up</Link>
+                <Link to='auth'>Sing Up</Link>
                 <Link to='shop'>SHOP</Link>
             </div>
         </div>
