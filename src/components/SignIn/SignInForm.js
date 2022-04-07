@@ -30,8 +30,8 @@ const SignInForm = () => {
         }
     };
     const SignInGoogle =async()=>{
-        const {user} = await GooglePopup();
-        await CreateUserDocFromAuth(user); 
+        await GooglePopup();
+         
     }
   return (
     <div>
