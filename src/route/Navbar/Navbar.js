@@ -3,11 +3,16 @@ import {Link,Outlet} from 'react-router-dom';
 import {ReactComponent as Crwlogo} from '../../asset/crown.svg';
 import { UserContext } from '../../context/UserContext';
 import {SignOutUser} from '../../utils/firebase/firebase';
-
+import CartIcaon from '../../components/CartIcon/CartIcaon';
+import CartDropDown from '../../components/CartDropDown/CartDropDown';
 import './Navbar.scss';
+import { CartContext } from '../../context/CartContext';
+
+
 const Navbar = () => {
   const {currentUser} = useContext(UserContext);
-  console.log(currentUser)
+  const {isToggle,setisToggle} = useContext(CartContext);
+  console.log(isToggle)
   return (
     <React.Fragment>
         <div className='navigation'>
@@ -20,12 +25,22 @@ const Navbar = () => {
               }
                 
                 <Link className='nav-link' to='shop'>SHOP</Link>
+                <div div className = 'nav-link'
+                onClick = {
+                  () => setisToggle(!isToggle)
+                } >
+                  <CartIcaon />
+                </div>
+                
             </div>
+                {
+                  isToggle ? < CartDropDown / > : null
+                }
         </div>
-        
         <Outlet/>
+        
     </React.Fragment>
   )
 }
 
-export default Navbar
+export default Navbar;

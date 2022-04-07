@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { UserProvider } from './context/UserContext';
+import { ProductProvider } from './context/ProductContext';
+import { CartProvider } from './context/CartContext';
 
 //ReactDOM.render(
 //  <React.StrictMode>
@@ -13,6 +15,15 @@ import { UserProvider } from './context/UserContext';
 //);
 const container = document.getElementById('root');
 const root = createRoot(container);
-root.render(<BrowserRouter><UserProvider><App/></UserProvider></BrowserRouter>);
+root.render(
+<BrowserRouter>
+    <UserProvider>
+        <ProductProvider>
+            <CartProvider>
+                <App/>
+            </CartProvider>
+        </ProductProvider>
+    </UserProvider>
+</BrowserRouter>);
 
 // If 
