@@ -12,7 +12,7 @@ import { CartContext } from '../../context/CartContext';
 const Navbar = () => {
   const {currentUser} = useContext(UserContext);
   const {isToggle,setisToggle} = useContext(CartContext);
-  console.log(isToggle)
+  
   return (
     <React.Fragment>
         <div className='navigation'>
@@ -25,7 +25,7 @@ const Navbar = () => {
               }
                 
                 <Link className='nav-link' to='shop'>SHOP</Link>
-                <div div className = 'nav-link'
+                <div className = 'nav-link'
                 onClick = {
                   () => setisToggle(!isToggle)
                 } >
@@ -34,7 +34,7 @@ const Navbar = () => {
                 
             </div>
                 {
-                  isToggle ? < CartDropDown / > : null
+                  isToggle ? <CartDropDown /> : null
                 }
         </div>
         <Outlet/>
