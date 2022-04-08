@@ -3,7 +3,7 @@ import CheckOutItem from '../../components/CheckOutItem/CheckOutItem';
 import { CartContext } from '../../context/CartContext'
 import './CheckOutPage.scss';
 const CheckOutPage = () => {
-  const {CartItems} = useContext(CartContext);
+  const {CartItems,Total} = useContext(CartContext);
   return (
     <div className='checkout-container'>
       <div className = 'checkout-header'>
@@ -20,7 +20,7 @@ const CheckOutPage = () => {
           Amount
         </div>
         <div  className = 'header-block' >
-          Total
+          Remove 
         </div>
       </div>
       
@@ -30,7 +30,7 @@ const CheckOutPage = () => {
         }
       </div>
       <div className='total'>
-        Total : $ 00
+        Total : $ {Total}
       </div>
     </div>
   )
