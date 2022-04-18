@@ -11,14 +11,14 @@ export const cartReducer = (state,action)=>{
                 quantity: state.quantity+1
             }
         case "REMOVE_FROM_QUANTITY":
-            state.quantity?(
+            return (state.quantity?(
             {
                 ...state,
                 quantity:state.quantity
             }):( { 
                 ...state,
 
-            })
+            }))
     }
 }
 
