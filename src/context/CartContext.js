@@ -1,4 +1,26 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState,useReducer } from "react";
+
+//Reducer function
+export const cartReducer = (state,action)=>{
+    const {type,payload}= action;
+    switch(type){
+        case "ADDITION_TO_LIST":
+            return{
+                ...state,
+
+                quantity: state.quantity+1
+            }
+        case "REMOVE_FROM_QUANTITY":
+            state.quantity?(
+            {
+                ...state,
+                quantity:state.quantity
+            }):{
+                ...state,
+
+            }
+    }
+}
 
 const Additiontolist=(cartitems,products)=>{
     const itemExist = cartitems.find(item=>item.id === products.id);    
@@ -23,19 +45,14 @@ const addto =(cartitems,product)=>{
 const del=(cartitems,product)=>{
     return cartitems.filter(item=>item.id !== product.id);
 };
-
-export const CartContext=createContext({
+const initialState={    
     isToggle:false,
-    setisToggle:()=>{},
     CartItems:[],
-    setCartItems:()=>{},
     Count:0,
-    addToCartItem:()=>{},
-    removeCartItem:()=>{},
-    deleteCartItem:()=>{},
-    Total:0,
-    
-});
+    Total:0,    
+}
+
+export const CartContext=createContext(initialState);
 
 
 
@@ -44,6 +61,7 @@ export const CartProvider=({children})=>{
     const [CartItems,setCartItems]=useState([]);
     const [Count,setCount]=useState(0);
     const [Total,setTotal]=useState(0);
+    const [state,dispatch]=useReducer(cartReducer,initialState);
     
     const addItem =(products)=>{
         setCartItems(Additiontolist(CartItems,products))

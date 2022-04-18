@@ -26,7 +26,7 @@ export const db = getFirestore();
 export const addCollectionAndDocuments = async(collectionKey,objectToAdd)=>{
     const collectionRef = collection(db,collectionKey);
 
-    const batch = writeBatch(db);
+    const batch = writeBatch(db);   
     objectToAdd.forEach((object)=>{
         const docRef = doc(collectionRef,object.title.toLowerCase());
         batch.set(docRef,object)

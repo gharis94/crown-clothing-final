@@ -1,6 +1,7 @@
 import React from 'react'
 import Directory from '../../components/Directory/Directory';
 
+
 const Home = () => {
    const categories = [{
            id: 1,
