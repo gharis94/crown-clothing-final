@@ -2,7 +2,7 @@ import { createContext, useEffect, useState,useReducer } from "react";
 
 //Reducer function
 export const cartReducer = (state,action)=>{
-    const {type,payload}= action;
+    const {type}= action;
     switch(type){
         case "ADDITION_TO_LIST":
             return{
@@ -15,10 +15,10 @@ export const cartReducer = (state,action)=>{
             {
                 ...state,
                 quantity:state.quantity
-            }):{
+            }):( { 
                 ...state,
 
-            }
+            })
     }
 }
 
